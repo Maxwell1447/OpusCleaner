@@ -1,0 +1,31 @@
+{
+    "type": "bilingual",
+    "description": "Filter a parallel dataset using COMETKIWI with automatic threshold.",
+    "parameters": {
+        "PROB": {
+            "type": "float",
+            "required": false,
+            "default": 0.5,
+            "help": "Probability threshold of acceptance."
+        },
+        "MIN": {
+            "type": "float",
+            "required": false,
+            "default": 0.4,
+            "help": "Sentence alignment certainty lower bound."
+        },
+        "MAX": {
+            "type": "float",
+            "required": false,
+            "default": 0.85,
+            "help": "Sentence alignment certainty upper bound."
+        },
+        "NUMGAUSSIANS": {
+            "type": "int",
+            "required": false,
+            "default": 4,
+            "help": "Number of gaussian mixtures for density approximation."
+        }
+    },
+    "command": "python autothreshold_similarity.py --scores --min $MIN --max $MAX --numgaussians $NUMGAUSSIANS --prob $PROB"
+}
